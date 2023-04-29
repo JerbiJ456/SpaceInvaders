@@ -27,7 +27,7 @@ class Q_Agent():
             somme = 0
             state = game.reset()
             self.game.display = False
-            if(nEpisodes-episode) < 5 : 
+            if(nEpisodes-episode) < 3 : 
                 self.game.display = True
             for step in range(maxSteps):
                 action = self.select_action(state)
@@ -46,9 +46,6 @@ class Q_Agent():
             rValues[episode]=somme
         print("\nFINISHED LEARNING")
         self.qFuncTrace(nEpisodes, maxSteps, qValues)
-        
-
-
 
     def updateQ(self, state, action, reward, next_state):
         try:
@@ -70,11 +67,12 @@ class Q_Agent():
     
     def qFuncTrace(self, nEpisodes, maxSteps, qValues):
         files = os.listdir('courbes')
-        name = f"{nEpisodes}nbrEpisodes_{maxSteps}maxSteps"
+        name = f"{nEpisodes}Episodes_{maxSteps}Steps"
         if 'qfunc_'+name+'.png' in files:
             for i in range(1,100):
                 if f'qfunc_{name}({i}).png' not in files:
                     name += f'{i}' 
+                    break
         fig1 = plt.figure("Valeurs Q en fonction des épisodes")
         plt.plot(qValues)
         fig1.suptitle('Valeurs Q en fonction des épisodes', fontsize=12)
