@@ -45,7 +45,7 @@ The figure below is a graph of the sum of Q-values on the y-axis and the number 
 
 We observe that the Q-value increases positively with the number of episodes. This indicates that the agent learns more as the number of episodes increases. We did not manage to observe the stabilization of Q-values, characterized by a plateau, but theoretically, we should achieve this. It is possible that our exploration is insufficient and we need to go beyond 20,000 episodes, but the significant execution time prevented us from pushing the tests further.
 
-![Evolution of Q-values with the number of episodes](./Images/qvaleur.png)
+![Evolution of Q-values with the number of episodes](./qvaleur.png)
 
 ## Conclusion and Improvements
 The evolution of our Q-learning seems relevant, and the hyperparameters we tested provide a good overall result. However, as an improvement, we could consider reducing the execution time of the algorithm. We could push the algorithm to a higher level of approximation through deep Q-learning, although this complexity requires higher computational power.
